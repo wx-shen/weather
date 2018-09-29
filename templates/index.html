@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>高空天气综合展示系统</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.0.1/css/bootstrap.css" rel="stylesheet">
+    <link rel="icon" href="{{static_url('images/favicon.jpg')}}">
+    <style>.myfont{ font-family:"楷体"; font-size:50px; font-style:normal; color:#0000EE	}</style>
+</head>
+<body background="{{static_url('images/nuptbg.jpg')}}">
+<div class="container">
+	<div class="row clearfix" style="margin-top:80px">
+		<div class="col-md-12 column">
+			<h1 class="text-center text-success myfont">
+				高空天气综合展示系统
+			</h1>
+		</div>
+	</div>
+	<div class="row clearfix" style="margin-top:30px">
+		<div class="col-md-6 column">
+			 <button type="button" class="btn btn-info btn-lg btn-block" onclick="javascrtpt:window.location.href='/map'">天气地图展示</button>
+		</div>
+		<div class="col-md-6 column">
+			 <button type="button" class="btn btn-info btn-lg btn-block"  onclick="javascrtpt:window.location.href='/rest'">天气接口展示</button>
+		</div>
+	</div>
+    <br>
+    <br>
+	<div class="row clearfix">
+		<div class="col-md-6 column">
+			 <button type="button" class="btn btn-info btn-lg btn-block"  onclick="javascrtpt:window.location.href='/neural'">神经网络展示</button>
+		</div>
+		<div class="col-md-6 column">
+			 <button type="button" class="btn btn-info btn-lg btn-block"  onclick="javascrtpt:window.location.href='/judge'">数据判断展示</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="{{static_url('jquery.min.js')}}"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.0.1/js/bootstrap.js"></script>
+</body>
+</html>

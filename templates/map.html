@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>高空天气数据</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <link href="{{static_url('bootstrap.min.css')}}" rel="stylesheet">
+    <link rel="icon" href="{{static_url('images/favicon.jpg')}}">
+    <style type="text/css">
+        .info {
+            border: solid 1px silver;
+        }
+        div.info-top {
+            position: relative;
+            background: none repeat scroll 0 0 #F9F9F9;
+            border-bottom: 1px solid #CCC;
+            border-radius: 5px 5px 0 0;
+        }
+        div.info-top div {
+            display: inline-block;
+            color: #333333;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 31px;
+            padding: 0 10px;
+        }
+        div.info-top img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transition-duration: 0.25s;
+        }
+        div.info-top img:hover {
+            box-shadow: 0px 0px 5px #000;
+        }
+        div.info-middle {
+            font-size: 12px;
+            padding: 6px;
+            line-height: 20px;
+        }
+        div.info-bottom {
+            height: 0px;
+            width: 100%;
+            clear: both;
+            text-align: center;
+        }
+        div.info-bottom img {
+            position: relative;
+            z-index: 104;
+        }
+        span {
+            margin-left: 5px;
+            font-size: 11px;
+        }
+        .info-middle img {
+            float: left;
+            margin-right: 6px;
+        }
+    </style>
+    <script type="text/javascript"
+            src="http://webapi.amap.com/maps?v=1.4.5&key=317adc59724e7329515bbb42d7881520"></script>
+
+</head>
+<body>
+<div id="container" style="width:900px; height:600px"></div>
+<div id="container1" style="width:365px; height:600px; margin-left:70.5%" >
+    <div class="span4">
+			 <button class="btn btn-danger" type="button" onclick="addCircle()"> 告警区域</button>
+             <button class="btn btn-success" type="button" onclick="clear_area()">区域隐藏</button>
+             <button class="btn btn-info" type="button">站点数据请点击地图站点</button>
+    </div>
+    <div class="panel-group" id="accordion">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion"
+				   href="#collapse1">
+					高度-温度
+				</a>
+			</h4>
+		</div>
+		<div id="collapse1" class="panel-collapse collapse in">
+			<div class="panel-body">
+				<div id="chart-container1"></div>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion"
+				   href="#collapse2">
+					高度-风速
+				</a>
+			</h4>
+		</div>
+		<div id="collapse2" class="panel-collapse collapse">
+			<div class="panel-body">
+				<div id="chart-container2"></div>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion"
+				   href="#collapse3">
+					高度-气压
+				</a>
+			</h4>
+		</div>
+		<div id="collapse3" class="panel-collapse collapse">
+			<div class="panel-body">
+				<div id="chart-container3"></div>
+			</div>
+		</div>
+	</div>
+    <div class="panel panel-info">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion"
+				   href="#collapse4">
+					高度-风向
+				</a>
+			</h4>
+		</div>
+		<div id="collapse4" class="panel-collapse collapse">
+			<div class="panel-body">
+				<div id="chart-container4"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+<script type="text/javascript" src="{{static_url('jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{static_url('marker.js')}}">
+</script>
+<script type="text/javascript" src="http://webapi.amap.com/demos/js/liteToolbar.js"></script>
+    <script src="{{static_url('bootstrap.min.js')}}"></script>
+    <script src="{{static_url('highcharts.js')}}"></script>
+</body>
+</html>

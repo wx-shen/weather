@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>站点观测数据</title>
+    <link href="{{static_url('bootstrap.min.css')}}" rel="stylesheet">
+</head>
+<body background="{{static_url('images/nuptbg.jpg')}}">
+<div id="container">
+<h1>站点观测数据</h1>
+<h2>站点代码：{{sinfo.sid}}</h2> <h2>站点名字：{{sinfo.name}}</h2>
+<h2>站点经度：{{sinfo.longitude}}</h2> <h2>站点纬度：{{sinfo.latitude}}</h2>
+<h2>站点数据更新时间：{{sinfo.updatetime}}</h2>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>高度(m)</th>
+        <th>气压(hpa)</th>
+        <th>温度(C)</th>
+        <th>风速(节)</th>
+        <th>风向(方向角)</th>
+    </tr>
+    {%for r in winfo %}
+        {% if float(r.temp)<-30 or int(r.sknt)>40 %}
+    <tr class="danger">
+        {% else %}
+        <tr>
+        {% end %}
+        <td>{{r.hght}}</td>
+        <td>{{r.pres}}</td>
+        <td>{{r.temp}}</td>
+        <td>{{r.sknt}}</td>
+        <td>{{r.drct}}</td>
+
+    </tr>
+    {% end %}
+    </table>
+    </div>
+<script src="{{static_url('jquery.min.js')}}"></script>
+<script src="{{static_url('bootstrap.min.js')}}"></script>
+</body>
+</html>

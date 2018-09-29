@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>神经网络</title>
+    <style>.myfont{ font-family:"楷体"; font-size:36px; font-style:normal; color:#0000EE	}</style>
+     <style>.myfont1{ font-family:"楷体"; font-size:25px; font-style:normal; color:#EE4000	}</style>
+<script type="text/javascript" src="https://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+     <link href="{{static_url('bootstrap.min.css')}}" rel="stylesheet">
+    <link rel="icon" href="{{static_url('images/favicon.jpg')}}">
+</head>
+<body background="{{static_url('images/nuptbg.jpg')}}">
+<div id="container1" style="height:300px;weight:900px"></div>
+<div id="container2" style="text-align: center">
+    学习率：<select class="form-group" id="eta">
+  <option>0.0001</option>
+  <option>0.0002</option>
+  <option>0.0003</option>
+  <option>0.00001</option>
+  <option>0.00002</option>
+    <option>0.00003</option>
+</select>
+        学习次数：<select class="form-group" id="n">
+  <option>5</option>
+  <option>10</option>
+  <option>20</option>
+  <option>50</option>
+  <option>100</option>
+  <option>500</option>
+</select>
+     <button class="btn btn-success btn-large" type="button" onclick="run()" id="start">开始训练</button>
+    <button class="btn btn-large btn-warning" type="button" onclick="re_run()">重新训练</button>
+
+</div>
+<div id="container3" style="text-align: center">
+
+    <div id="time" class="myfont">训练尚未开始</div>
+    <div id="w0">w0: 0</div>
+    <div id="w1">w1: 0</div>
+    <div id="w2">w2: 0</div>
+    <div id="w3">w3: 0</div>
+    <div id="w4">w4: 0</div>
+    <div id="w5">w5: 0</div>
+    <div id="w6">w6: 0</div>
+    <div id="jw" class="myfont1">代价：--</div>
+</div>
+<script type="text/javascript" src="{{static_url('jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{static_url('highcharts.js')}}"></script>
+<script type="text/javascript" src="{{static_url('show-neural.js')}}"></script>
+<script type="text/javascript" src="{{static_url('run-neural.js')}}"></script>
+<script type="text/javascript" src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+<script type="text/javascript" src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+    <script src="{{static_url('bootstrap.min.js')}}"></script>
+</body>
+</html>
